@@ -57,7 +57,25 @@ export default class PerskaitytosScreen extends Component<{}> {
         );
     }
 
+    displayData() {
 
+var intas = 0;
+
+
+
+            AsyncStorage.getAllKeys().then(keys => {
+            var items = [];
+            for (var key of keys) {
+            AsyncStorage.getItem(key).then(item => items.push(item));
+            this.setState({ "temp": key })
+            }
+
+            this.setState({ knygos: items })
+
+          });
+
+alert(this.state.temp);
+    }
 
 
 }
